@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "git": "git add . && read msg && git commit -m \"$msg\" && git push"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.3"
+  }
+}

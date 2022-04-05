@@ -8,7 +8,5 @@
   },
   "author": "@plutoniumm",
   "license": "MIT",
-  "devDependencies": {
-    "prettier": "^1.18.2"
-  }
+  "devDependencies": {}
 }
