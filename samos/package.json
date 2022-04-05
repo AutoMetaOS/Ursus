@@ -1,14 +1,16 @@
 {
-  "name": "railway",
+  "name": "super-amos",
   "version": "1.0.0",
   "description": "A template for kick starting a Cloudflare Workers project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "deploy": "sh deploy.sh"
   },
   "author": "@plutoniumm",
   "license": "MIT",
-  "devDependencies": {
-    "prettier": "^1.18.2"
+  "dependencies": {
+    "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

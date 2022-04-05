@@ -6,3 +6,7 @@ workers_dev = true
 route = ""
 zone_id = ""
 compatibility_date = "2022-04-04"
+
+[[kv-namespaces]]
+binding = "POSTS"
+id = "1aecf60506b14d749ce143138e804708"

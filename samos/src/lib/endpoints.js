@@ -1,0 +1,3 @@
+const handleEndpoints = ( req, endpoint ) => {
+
+}
