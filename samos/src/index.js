@@ -1,5 +1,5 @@
 import { headers } from "./lib/standards.js";
-import { handlerHandler } from "./lib/endpoints";
+import { handler } from "./lib/endpoints";
 
 
 const getResponse = data => {
@@ -15,8 +15,7 @@ async function handleRequest ( request ) {
   const series = path[ 1 ];
   const functor = path.slice( 2 ).join( "/" );
 
-  const handler = handlerHandler( series );
-  const data = await handler( functor, searchParams );
+  const data = await handler( series, functor, searchParams );
 
   return new Response( getResponse( data ), { headers: headers.std } );
 };

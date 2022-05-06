@@ -1,8 +1,6 @@
 name = "super-amos"
-type = "webpack"
 
 account_id = ""
 workers_dev = true
-route = ""
-zone_id = ""
+route = "api.nukes.in/*"
 compatibility_date = "2022-04-04"

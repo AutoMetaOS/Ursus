@@ -1,4 +1,4 @@
-import KEYS from "../constants";
+import KEYS from "../lib/standards";
 
 export const get_metadata = async ( searchTerm ) => {
     const data = await fetch( `https://api.urlmeta.org/?url=${ searchTerm }`, {

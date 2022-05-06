@@ -14,8 +14,8 @@ const quick_tests = async () => {
     const result_1 = match.str_in_arr( filtr, 'einstein' );
     table.push( new Result( 'Quick', 'Search', result_1 ) );
 
-    const data2 = await jfetcher( 'quick/metadata?url=https://amos.nukes.in' );
-    const filtr2 = data2.meta.site.favicon;
+    const data2 = await jfetcher( 'quick/metadata?url=https://cmos.nukes.in' );
+    const filtr2 = data2.meta?.site.favicon;
     const result_2 = match.str_in_str( filtr2, 'Amos' );
     table.push( new Result( 'Quick', 'Favicon', result_2 ) );
 

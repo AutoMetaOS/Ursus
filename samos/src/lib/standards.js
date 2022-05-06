@@ -1,3 +1,17 @@
+export const AMOS = {
+    root: "https://cmos.nukes.in",
+    meme: "https://www.youtube.com/watch?v=6KbRA2RjhgQ"
+};
+
+export default constants = {
+    domain_name: "",
+    account_id: "",
+    zone_id: "",
+    API: {
+        urlmeta: ""
+    }
+}
+
 export const headers = {
     std: {
         "content-type": "application/json;charset=UTF-8",
