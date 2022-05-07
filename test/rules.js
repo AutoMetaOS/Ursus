@@ -5,5 +5,5 @@ export const match = {
     str_in_str: ( value, expect ) => value?.includes( expect ),
 };
 
-export const jfetcher = ( end ) => fetch( `https://super-amos.nukesapi.workers.dev/${ end }` ).then( r => r.json() );
-export const tfetcher = ( end ) => fetch( `https://super-amos.nukesapi.workers.dev/${ end }` ).then( r => r.json() );
+export const jfetcher = ( end ) => fetch( `https://api.nukes.in/${ end }` ).then( r => r.json() );
+export const tfetcher = ( end ) => fetch( `https://api.nukes.in/${ end }` ).then( r => r.text() );

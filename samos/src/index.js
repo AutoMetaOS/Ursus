@@ -1,6 +1,15 @@
 import { headers } from "./lib/standards.js";
-import { handler } from "./lib/endpoints";
+import cfg from "./lib/config";
 
+const handler = ( series, functor, params ) => {
+  const { type, func, filter, url } = cfg[ series ][ functor ];
+
+  if ( type === 'func' )
+    return func( filter( params ) );
+
+  if ( type === 'redirect' )
+    return { type: 'special', url: url( params ) };
+};
 
 const getResponse = data => {
   const type = typeof data;
@@ -17,7 +26,10 @@ async function handleRequest ( request ) {
 
   const data = await handler( series, functor, searchParams );
 
-  return new Response( getResponse( data ), { headers: headers.std } );
+  if ( data.type === 'special' )
+    return Response.redirect( data.url, statusCode = 307 );
+  else
+    return new Response( getResponse( data ), { headers: headers.std } );
 };
 
 addEventListener( "fetch", event => event.respondWith( handleRequest( event.request ) ) );

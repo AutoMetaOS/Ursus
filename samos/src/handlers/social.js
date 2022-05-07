@@ -1,24 +1,27 @@
-export const twitter_tweet = async ( id ) =>
-    fetch( 'https://kizie.co/api/requests/getTweet', {
+export const twitter_tweet = async ( id ) => {
+    const response = await fetch( 'https://kizie.co/api/requests/getTweet', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        redirect: 'follow',
-        referrer: ' https://kizie.co/tools/twitter-image',
-        body: JSON.stringify( { id } )
+        body: JSON.stringify( { "id": BigInt( id ).toString() } )
     } )
-        .then( r => r.json() ).then( d => {
-            return {
-                id: d.id_str,
-                text: d.full_text,
-                by: {
-                    id: d.user.id_str,
-                    name: d.user.name,
-                    screen: d.user.screen_name,
-                    dp: d.user.profile_image_url_https
-                }
-            };
-        } );
+        .then( r => r.json() );
 
+    const { id_str, full_text, user } = response;
+    const { id_str: id_str_user, name, screen_name, profile_image_url_https } = user;
+
+    const processed = {
+        id: id_str,
+        text: full_text,
+        by: {
+            id: id_str_user,
+            name: name,
+            screen: screen_name,
+            dp: profile_image_url_https
+        }
+    };
+
+    return processed;
+};
 
 const goog_get = async ( endpoint ) => {
     const response = await fetch(
@@ -27,7 +30,7 @@ const goog_get = async ( endpoint ) => {
 
     return JSON.parse( response.slice( 4 ) ).storySummaries.trendingStories;
 };
-export const google_news = async(location) => {
+export const google_news = async ( location ) => {
     const promises = location.split( ',' );
     const response = await Promise.all( [ 'b', 'm', 't' ].map( e => goog_get( e ) ) );
 }

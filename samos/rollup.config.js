@@ -12,7 +12,7 @@ export default {
             mangle: { toplevel: false },
             compress: {
                 module: true,
-                toplevel: false
+                toplevel: true
             },
             output: { quote_style: 1 }
         } )
