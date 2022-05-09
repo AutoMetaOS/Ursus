@@ -1,4 +1,5 @@
 import { terser } from 'rollup-plugin-terser';
+import ts from "rollup-plugin-ts";
 
 export default {
     input: 'src/index.js',
@@ -7,6 +8,16 @@ export default {
         format: 'cjs'
     },
     plugins: [
+        ts( {
+            tsconfig: {
+                target: 'es2021',
+                allowSyntheticDefaultImports: true,
+                allowJs: true,
+                checkJs: true,
+                strict: true,
+                noImplicitAny: true,
+            }
+        } ),
         terser( {
             ecma: 2020,
             mangle: { toplevel: false },

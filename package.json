@@ -5,6 +5,8 @@
     "git": "git add . && read msg && git commit -m \"$msg\" && git push"
   },
   "dependencies": {
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
     "node-fetch": "^3.2.3"
   }
 }

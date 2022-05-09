@@ -2,7 +2,14 @@ import { AMOS } from "./standards";
 import { search_suggestions, get_metadata } from "../handlers/quick";
 import { twitter_tweet } from "../handlers/social";
 
-export default config = {
+interface Generator {
+    type: string,
+    func?: Function,
+    filter?: (a: string)=> string,
+    url?: (a: string)=> string
+};
+
+const config = {
     quick: {
         suggest: {
             type: "func",
@@ -35,3 +42,5 @@ export default config = {
         // }
     }
 };
+
+export default config;

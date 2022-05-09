@@ -12,5 +12,7 @@ root
 ├── raw: Template
 ├── samos: Super-AMOS API
 └── test: Tests
-    └── super-amos: samos tests
+    └── rules: Generic Definations
+    └── playground: Random Trials
+    └── super-amos: Super-AMOS Tests
 ```

@@ -1,4 +1,19 @@
-import { match, jfetcher, tfetcher } from "../rules.js";
+import { match, jfetcher, tfetcher } from "./rules.js";
+
+
+const inserter = ( d ) => document.querySelector( '#results' ).insertAdjacentHTML( 'beforeend', d );
+const tabler = ( data ) => {
+    const color = data.Result === 'Pass' ? 'green' : 'red';
+
+    inserter( `
+    <div class="card fade-left †l">
+        <h3 class="fw4 p10">${ data.Category }</h3>
+        <div class="name p10">${ data.Name }</div>
+        <div class="result ${ color } p10">${ data.Result }</div>
+    </div>`);
+
+    return 0;
+};
 
 const table = [];
 class Output {
@@ -7,7 +22,7 @@ class Output {
         this.Name = name;
         this.Result = result ? 'Pass' : false;
 
-        table.push( this );
+        tabler( this );
     }
 };
 
@@ -65,7 +80,7 @@ const social_tests = async () => {
 
 Promise.all( [
     quick_tests(),
-    content_tests(),
+    // content_tests(),
     social_tests()
 ] ).then( () => {
     console.table( table );
