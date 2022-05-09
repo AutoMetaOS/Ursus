@@ -1,0 +1,54 @@
+<script>
+	export let //
+		data = {
+			Category: "None",
+			Name: "None",
+			Result: "Fail",
+		};
+
+	const color = () => (data.Result === "Pass" ? "green" : "red");
+</script>
+
+<div class="card fade-left †l">
+	<h3 class="fw4 p10">{data.Category}</h3>
+	<div class="name p10">{data.Name}</div>
+	<div class="result {color()} p10">{data.Result}</div>
+</div>
+
+<style>
+	.name,
+	.fw4 {
+		text-transform: uppercase;
+	}
+
+	.result {
+		text-transform: uppercase;
+	}
+
+	.green {
+		color: #0f0;
+	}
+
+	.red {
+		color: #f00;
+	}
+
+	.card {
+		margin: 10px;
+		background: #fff;
+		border-radius: 10px;
+		display: inline-block;
+		height: 200px;
+		position: relative;
+		text-align: left;
+		width: 300px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+		font-size: 1.15rem;
+	}
+
+	.card:hover {
+		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+			0 10px 10px rgba(0, 0, 0, 0.22);
+	}
+</style>

@@ -1,10 +1,19 @@
-import Koa from "koa";
-import serve from "koa-static";
+import fetch from "node-fetch";
+import express from "express";
 
-const app = new Koa();
+const app = express();
 
-app.use( serve( '.' ) );
+const jfetcher = ( end ) => fetch( `https://api.nukes.in/${ end }` ).then( r => r.json() );
+const tfetcher = ( end ) => fetch( `https://api.nukes.in/${ end }` ).then( r => r.text() );
 
-app.listen( 3000 );
+app.use( express.static( '.' ) )
+app.get( '/bypass', function ( req, res ) {
+    console.warn( req.url );
+    const request = req.url.replace( '/bypass?', '' );
+    const [ protocol, endpoint ] = request.split( '::' );
 
-console.log( 'listening on port 3000' );
+    if ( protocol === 'json' ) jfetcher( endpoint ).then( d => res.send( d ) );
+    else tfetcher( endpoint ).then( d => res.send( d ) );
+} )
+
+app.listen( 3000, () => console.log( 'listening on 3000' ) );

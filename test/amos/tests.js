@@ -1,28 +1,16 @@
-import { match, jfetcher, tfetcher } from "./rules.js";
-
-
-const inserter = ( d ) => document.querySelector( '#results' ).insertAdjacentHTML( 'beforeend', d );
-const tabler = ( data ) => {
-    const color = data.Result === 'Pass' ? 'green' : 'red';
-
-    inserter( `
-    <div class="card fade-left †l">
-        <h3 class="fw4 p10">${ data.Category }</h3>
-        <div class="name p10">${ data.Name }</div>
-        <div class="result ${ color } p10">${ data.Result }</div>
-    </div>`);
-
-    return 0;
-};
+import { match, fetche } from "./rules.js";
 
 const table = [];
+const target = document.querySelector( '#results' );
 class Output {
     constructor ( cat, name, result ) {
         this.Category = cat;
         this.Name = name;
         this.Result = result ? 'Pass' : false;
 
-        tabler( this );
+        const data = this;
+        table.push( data );
+        new MegaCard( { target, props: { data } } )
     }
 };
 
@@ -30,12 +18,16 @@ class Output {
 const auto_processor = async ( endpoint, mapper, matcher, struct ) => {
     let filtr;
 
-    if ( typeof endpoint !== 'string' ) {
-        const data = await jfetcher( endpoint.url );
+    const prefix = endpoint.bypass ? `${ endpoint.type || 'json' }::` : '';
+    const data = await fetche( `${ prefix }${ endpoint.url }`, {
+        type: endpoint?.type || 'json',
+        bypass: endpoint?.bypass || false
+    } );
+
+    if ( endpoint?.type === 'json' || !endpoint.type )
         filtr = data instanceof Array ?
-            data.map( mapper ) : mapper( data );
-    }
-    else filtr = await tfetcher( endpoint );
+            data.map( mapper ) : mapper( data )
+    else filtr = data;
 
     const result = match[ matcher.type ]( filtr, matcher.value );
     return new Output( ...struct, result );
@@ -60,7 +52,7 @@ const quick_tests = async () => {
 };
 const content_tests = async () => {
     const promise1 = await auto_processor(
-        'cms/css?name=keyframes.css',
+        { url: 'cms/css?name=keyframes.css', type: 'text', bypass: true },
         null,
         { type: 'str_in_str', value: 'fade-right' },
         [ 'Content', 'CSS' ]
@@ -80,7 +72,7 @@ const social_tests = async () => {
 
 Promise.all( [
     quick_tests(),
-    // content_tests(),
+    content_tests(),
     social_tests()
 ] ).then( () => {
     console.table( table );
