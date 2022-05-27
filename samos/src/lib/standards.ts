@@ -1,16 +1,14 @@
 export const AMOS = {
     root: "https://cmos.nukes.in",
+    gh_raw: "https://raw.githubusercontent.com/AutoMetaOS",
     meme: "https://www.youtube.com/watch?v=6KbRA2RjhgQ"
 };
 
-export default constants = {
-    domain_name: "",
-    account_id: "",
-    zone_id: "",
+const constants = {
     API: {
         urlmeta: "c3NtYW5hdkBpY2xvdWQuY29tOjBmM0NkbGhpbnlBVmNHNjRSRXh4"
     }
-}
+}; export default constants;
 
 export const headers = {
     std: {
@@ -24,4 +22,4 @@ export const headers = {
     }
 };
 
-export const match = ( actual, expect ) => actual.startsWith( expect );
+export const match = ( actual: string, expect: string ) : boolean => actual.startsWith( expect );

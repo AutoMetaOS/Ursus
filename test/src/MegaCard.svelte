@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from "svelte";
+
 	export let //
 		data = {
 			Category: "None",
@@ -6,49 +8,48 @@
 			Result: "Fail",
 		};
 
-	const color = () => (data.Result === "Pass" ? "green" : "red");
+	let card;
+	const color = () => data.Result === "Pass";
+
+	// Will remove card only if test passes
+	onMount(() => setTimeout(() => (color() ? card.remove() : null), 2000));
 </script>
 
-<div class="card fade-left †l">
-	<h3 class="fw4 p10">{data.Category}</h3>
-	<div class="name p10">{data.Name}</div>
-	<div class="result {color()} p10">{data.Result}</div>
+<div class="card m10 †c" bind:this={card}>
+	{data.Name} of {data.Category}
+	<svg viewBox="0 0 32 32">
+		{#if color()}
+			<path stroke="#0f0" d="M2 20 L12 28 30 4" />
+		{:else}
+			<path stroke="#f00" d="M2 30 L30 2 M30 30 L2 2" />
+		{/if}
+	</svg>
 </div>
 
 <style>
-	.name,
-	.fw4 {
-		text-transform: uppercase;
+	@keyframes fadeInOut {
+		0%,
+		100% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
 	}
 
-	.result {
-		text-transform: uppercase;
-	}
-
-	.green {
-		color: #0f0;
-	}
-
-	.red {
-		color: #f00;
+	svg {
+		margin-left: 10px;
+		width: 16px;
+		height: 16px;
+		fill: none;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 2;
 	}
 
 	.card {
-		margin: 10px;
-		background: #fff;
-		border-radius: 10px;
-		display: inline-block;
-		height: 200px;
-		position: relative;
-		text-align: left;
-		width: 300px;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-		font-size: 1.15rem;
-	}
-
-	.card:hover {
-		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-			0 10px 10px rgba(0, 0, 0, 0.22);
+		text-transform: capitalize;
+		color: #fff;
+		animation: fadeInOut 2.5s forwards;
 	}
 </style>

@@ -13,10 +13,9 @@ export default {
                 target: 'es2021',
                 allowSyntheticDefaultImports: true,
                 allowJs: true,
-                checkJs: true,
-                strict: true,
-                noImplicitAny: true,
-            }
+                checkJs: true
+            },
+            exclude: [ "node_modules", "src/**/*.js" ]
         } ),
         terser( {
             ecma: 2020,

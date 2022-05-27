@@ -13,11 +13,64 @@
     <script src="./components/Megacard.js"></script>
     <link rel="stylesheet" href="./components/Megacard.css">
 
+    <script>
+        const table = [];
+    </script>
     <script type="module" src="./amos/tests.js"></script>
 </head>
 
-<body class="†c" style="background: #f5f5f7">
-    <div id="results" class="ƒ ƒ∑ ∆-ct"></div>
+<body class="†c" style="background: #222" xmlns="http://www.w3.org/2000/svg">
+    <div class="w-50 mx-a" style="margin-top:10%;">
+        <svg class="p20 m20" height="300px" width="300px" viewBox="0 0 23 23">
+            <defs>
+                <linearGradient id="a" x1="0" y1="0" x2="60%" y2="60%">
+                    <stop offset="0" stop-color="#F59" />
+                    <stop offset="1" stop-color="#70F" />
+                </linearGradient>
+                <style type="text/css">
+                    @keyframes bob {
+                        0% {
+                            transform: translateY(5px);
+                        }
+
+                        50% {
+                            transform: translateY(-10px);
+                        }
+
+                        100% {
+                            transform: translateY(5px);
+                        }
+                    }
+
+                    .bubble {
+                        animation: bob 2s ease-in-out infinite;
+                    }
+
+                    .b2 {
+                        animation-delay: 0.15s;
+                    }
+                </style>
+            </defs>
+            <path fill="url(#a)"
+                d="m21 4-2-2H4L2 4v15l2 2h15l2-2V4zm-2 14-1 1H5l-1-1V5l1-1h13l1 1v13zm-9 4v1H9v-1h1zm2 0v1h-1v-1h1zm-4 0v1H7v-1h1zm6 0v1h-1v-1h1zm2 0v1h-1v-1h1zM10 0v1H9V0h1zm2 0v1h-1V0h1zM8 0v1H7V0h1zm6 0v1h-1V0h1zm2 0v1h-1V0h1zm6 13h1v1h-1v-1zm0-4h1v1h-1V9zm0-2h1v1h-1V7zm0 4h1v1h-1v-1zm0 4h1v1h-1v-1zM0 13h1v1H0v-1zm0-4h1v1H0V9zm0-2h1v1H0V7zm0 4h1v1H0v-1zm0 4h1v1H0v-1zm17" />
+
+            <g transform="scale(0.14) translate(33,32)" fill="url(#a)">
+                <path transform="scale(0.2) translate(0,0)"
+                    d="m380 125-9-1s-96-7-134 119c-34 110-111 105-115 105h-5a102 102 0 0 1 5-204c35 0 67 18 86 47l16-11a122 122 0 1 0-100 188c17 0 97-6 132-119 33-110 111-105 115-105h7a102 102 0 1 1-94 157l-16 11a122 122 0 1 0 112-187z" />
+                <circle class="bubble" cx="52" cy="55" r="4" />
+                <circle class="bubble b2" cx="47" cy="43" r="3" />
+                <path
+                    d="m64 4-4 4v78s0 10-10 10-10-10-10-10V8l-4-4h28m0-4H36a4 4 0 0 0-3 7l3 3v76c0 6 4 14 14 14s14-8 14-14V10l3-3V2l-3-2z" />
+            </g>
+        </svg>
+    </div>
+    <style>
+        #results {
+            color: #fff;
+            flex-direction: column-reverse !important;
+        }
+    </style>
+    <div id="results" class="†c w-50 mx-a ƒ-col"></div>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import { headers } from "./lib/standards.js";
 import cfg from "./lib/config";
 
@@ -27,7 +29,7 @@ async function handleRequest ( request ) {
   const data = await handler( series, functor, searchParams );
 
   if ( data.type === 'special' )
-    return Response.redirect( data.url, statusCode = 307 );
+    return Response.redirect( data.url, 307 );
   else
     return new Response( getResponse( data ), { headers: headers.std } );
 };

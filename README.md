@@ -1,18 +1,21 @@
 # Ursus Maritimus
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/AutoMetaOS/Web/main/static/OUI/icons/ursus.svg" alt="amos" width="300px" height="300px"/>
+<img src="https://api.nukes.in/cms/icon?name=amos:ursus.svg" alt="amos" width="300px" height="300px"/>
 </div>
 
 ## File Structure
 ```
 root
-├── old: Old Raw CFW Files
 ├── railway: Frontier API
-├── raw: Template
 ├── samos: Super-AMOS API
 └── test: Tests
-    └── rules: Generic Definations
+    └── amos: Super-AMOS Tests
+    └── server: Express Server: For bypass tests
     └── playground: Random Trials
-    └── super-amos: Super-AMOS Tests
+    └── src, components: Svelte Prebuilt Components
 ```
+
+## Planned
+- Use Proxy API to create object such that when object property is fetched it is returned from cache. If not in cache it is fetched and returned
+- Make DOCS
