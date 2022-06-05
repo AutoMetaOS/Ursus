@@ -1,14 +1,16 @@
 export const AMOS = {
     root: "https://cmos.nukes.in",
-    gh_raw: "https://raw.githubusercontent.com/AutoMetaOS",
-    meme: "https://www.youtube.com/watch?v=6KbRA2RjhgQ"
+    gh:{
+        raw: "https://raw.githubusercontent.com/AutoMetaOS",
+        ui: "https://raw.githubusercontent.com/AutoMetaOS/UI/deploy",
+        cdn:"https://cdn.jsdelivr.net/gh/AutoMetaOS/UI@deploy"
+    }
 };
 
-const constants = {
-    API: {
-        urlmeta: "c3NtYW5hdkBpY2xvdWQuY29tOjBmM0NkbGhpbnlBVmNHNjRSRXh4"
-    }
-}; export default constants;
+const API_KEYS = {
+    urlmeta: "c3NtYW5hdkBpY2xvdWQuY29tOjBmM0NkbGhpbnlBVmNHNjRSRXh4",
+    youtube: "AIzaSyDFZfyjFBWARwcMJp1aGxwV5HxXADV25H8"
+}; export default API_KEYS;
 
 export const headers = {
     std: {

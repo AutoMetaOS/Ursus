@@ -11,17 +11,19 @@ specifiers:
   rollup-plugin-svelte: ^7.1.0
   rollup-plugin-terser: ^7.0.2
   svelte: ^3.48.0
+  ts-import: ^3.0.0-beta.1
 
 dependencies:
   express: 4.18.1
   node-fetch: 3.2.3
-  rollup: 2.72.1
-  rollup-plugin-css-only: 3.1.0_rollup@2.72.1
   svelte: 3.48.0
+  ts-import: 3.0.0-beta.1
 
 devDependencies:
   '@rollup/plugin-commonjs': 22.0.0_rollup@2.72.1
   '@rollup/plugin-node-resolve': 13.3.0_rollup@2.72.1
+  rollup: 2.72.1
+  rollup-plugin-css-only: 3.1.0_rollup@2.72.1
   rollup-plugin-livereload: 2.0.5
   rollup-plugin-svelte: 7.1.0_rollup@2.72.1+svelte@3.48.0
   rollup-plugin-terser: 7.0.2_rollup@2.72.1
@@ -98,7 +100,7 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
-    dev: false
+    dev: true
 
   /@types/estree/0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
@@ -334,6 +336,7 @@ packages:
 
   /estree-walker/2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+    dev: true
 
   /etag/1.8.1:
     resolution: {integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=}
@@ -431,6 +434,7 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -695,6 +699,10 @@ packages:
       wrappy: 1.0.2
     dev: true
 
+  /options-defaults/2.0.39:
+    resolution: {integrity: sha512-oM3zz6IqQSXodCIpev4WcDIJeCKRLdNobGhZUsN1kKnmNXg18Rfwy7bolWLOwc3farTLRRRtp6qFarhUAa+23A==}
+    dev: false
+
   /opts/2.0.2:
     resolution: {integrity: sha512-k41FwbcLnlgnFh69f4qdUfvDQ+5vaSDnVPFI/y5XuhKRq97EnVVneO9F1ESVCdiVu4fCS2L8usX3mU331hB7pg==}
     dev: true
@@ -720,6 +728,7 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+    dev: true
 
   /proxy-addr/2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -790,7 +799,7 @@ packages:
     dependencies:
       '@rollup/pluginutils': 4.2.1
       rollup: 2.72.1
-    dev: false
+    dev: true
 
   /rollup-plugin-livereload/2.0.5:
     resolution: {integrity: sha512-vqQZ/UQowTW7VoiKEM5ouNW90wE5/GZLfdWuR0ELxyKOJUIaj+uismPZZaICU4DnWPVjnpCDDxEqwU7pcKY/PA==}
@@ -839,7 +848,7 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
-    dev: false
+    dev: true
 
   /safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
@@ -975,6 +984,13 @@ packages:
     dependencies:
       punycode: 2.1.1
     dev: true
+
+  /ts-import/3.0.0-beta.1:
+    resolution: {integrity: sha512-e3WStrBGCRrPxFZnNJhS9EGlo+RFV84QTBTNE2ne+z5T4PN5KlG+5Jtpa7B5FeDD7NCm876YQ2jbZm7HPxNJ9A==}
+    engines: {node: '>=14.14.0'}
+    dependencies:
+      options-defaults: 2.0.39
+    dev: false
 
   /type-is/1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
