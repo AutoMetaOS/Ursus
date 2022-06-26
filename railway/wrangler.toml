@@ -1,12 +1,10 @@
 name = "railway"
-type = "javascript"
 
 account_id = ""
-workers_dev = true
-route = ""
-zone_id = ""
+route = "api.nukes.in/frontier/*"
 compatibility_date = "2022-04-04"
+workers_dev = false
 
-[[kv-namespaces]]
+[[kv_namespaces]]
 binding = "POSTS"
 id = "1aecf60506b14d749ce143138e804708"

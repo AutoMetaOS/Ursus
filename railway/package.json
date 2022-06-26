@@ -4,9 +4,10 @@
   "description": "A template for kick starting a Cloudflare Workers project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "deploy": "sh deploy.sh",
+    "dev": "npm run build && npx wrangler dev ./index.js"
   },
   "author": "@plutoniumm",
-  "license": "MIT",
-  "devDependencies": {}
+  "license": "MIT"
 }
