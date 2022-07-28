@@ -10,21 +10,21 @@ const config = {
         suggest: {
             type: "func",
             func: search_suggestions,
-            filter: ( params: any ):string => params.toString()
+            filter: (params: any): string => params.get('q')
         },
         metadata: {
             type: "func",
             func: get_metadata,
-            filter: ( params: any ):string => params.get( 'url' )
+            filter: (params: any): string => params.get('url')
         }
     },
     cms: {
         css: {
             type: "redirect",
-            url: ( params: any ):string =>
-                `${ AMOS.gh.cdn }/css/${ params.get( 'name' ) }`
+            url: (params: any): string =>
+                `${AMOS.gh.cdn}/css/${params.get('name')}`
         },
-        icon:{
+        icon: {
             type: "redirect",
             url: cms_icons
         },
@@ -34,16 +34,16 @@ const config = {
             type: "func",
             // gets tweet data from tweet id
             func: twitter_tweet,
-            filter: ( params:any ):string => params.get( 'id' )
+            filter: (params: any): string => params.get('id')
         },
         youtube: {
             type: "func",
             func: youtubeHandler,
             filter: youtube_filter
         },
-        behance:{
+        behance: {
             type: "func",
-            func: ( params:any ):string => params.get( 'id' ),
+            func: (params: any): string => params.get('id'),
             filter: console.log
         }
         // google: {

@@ -1,6 +1,6 @@
 name = "super-amos"
 
-account_id = ""
+send_metrics = false
 workers_dev = true
 route = "api.nukes.in/*"
 compatibility_date = "2022-04-04"
